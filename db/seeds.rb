@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+ActiveRecord::Base.transaction do
+  # Clear all tables and reset id value
+  [Cat].each do |c|
+    ActiveRecord::Base.connection.execute("TRUNCATE TABLE #{c.table_name} RESTART IDENTITY;")
+  end
+  
+  # Make cats (birth_date, color, name, sex, description)
+  Cat.create([
+    { name: 'Frodo', color: 'ginger', birth_date: '2016/01/01', sex: 'M', description: 'From the Shire.' },
+    { name: 'Bilbo', color: 'black', birth_date: '2010/08/07', sex: 'F', description: 'Old but sweet' },
+    { name: 'Xanadu', color: 'blue', birth_date: '2015/07/25', sex: 'F', description: 'Sassy and cute' }
+  ])
+end
