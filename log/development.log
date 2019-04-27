@@ -306,3 +306,67 @@ Processing by CatsController#show as HTML
 Completed 200 OK in 38ms (Views: 31.1ms | ActiveRecord: 6.0ms)
 
 
+Started GET "/cats/new" for ::1 at 2019-04-26 17:21:11 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/middleware.rb:84
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (9.7ms)
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 9.5ms)
+
+
+
+NameError - uninitialized constant Cat::COLOR:
+  app/views/cats/new.html.erb:15:in `_app_views_cats_new_html_erb___3407711729564504126_70364061936700'
+  app/controllers/cats_controller.rb:26:in `new'
+
+Started POST "/__better_errors/a83ce1b934cb05b3/variables" for ::1 at 2019-04-26 17:21:11 -0700
+Started GET "/cats/new" for ::1 at 2019-04-26 17:21:32 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 444ms (Views: 443.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/cats" for ::1 at 2019-04-26 17:22:08 -0700
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"Tom Bilbo", "sex"=>"F", "color"=>"grey", "birth_date"=>"2019-04-02", "description"=>"tst"}}
+No template found for CatsController#create, rendering head :no_content
+Completed 204 No Content in 248ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-26 17:22:36 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 33ms (Views: 31.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-26 17:23:09 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 20ms (Views: 19.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-26 17:23:46 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 20ms (Views: 19.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-04-26 17:23:57 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 21ms (Views: 20.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/cats" for ::1 at 2019-04-26 17:24:01 -0700
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"Tom Bilbo", "sex"=>"M", "color"=>"grey", "birth_date"=>"2019-04-02", "description"=>"tst"}}
+No template found for CatsController#create, rendering head :no_content
+Completed 204 No Content in 222ms (ActiveRecord: 0.0ms)
+
+
