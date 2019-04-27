@@ -1,14 +1,15 @@
 <h1>Rent a Cat!</h1>
 <% if flash[:error] %>
-    <% flash[:error].each do |err, msg| %>
-    <div><%= msg %></div>
+    <% flash[:error].each do |err| %>
+    <div><%= err %></div>
     <% end %>
+    <br><br>
 <% end %>
-<br><br>
 
 <form action="<%= cat_rental_requests_url %>" method="post">
     <label for="cat-id">Cat</label>
     <select id="cat-id" name="rental[cat_id]">
+        <option selected disabled>--Select Cat--</option>
         <% @cats.each do |cat| %>
         <option value="<%= cat.id %>" <%= "selected" if @rental.cat_id == cat.id %>>
             <%= cat.name.capitalize %>

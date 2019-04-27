@@ -20,8 +20,8 @@ ActiveRecord::Base.transaction do
 
   # Add rental requests (cat_id, start_date, end_date, status)
   CatRentalRequest.create([
-    { cat_id: 1, start_date: '2019/10/01', end_date: '2019/10/30', status: 'DENIED' },
-    { cat_id: 1, start_date: '2019/09/20', end_date: '2019/10/15', status: 'APPROVED' },
+    { cat_id: 1, start_date: '2019/10/01', end_date: '2019/10/30', status: 'PENDING' },
+    { cat_id: 1, start_date: '2019/09/20', end_date: '2019/10/15', status: 'PENDING' },
     { cat_id: 2, start_date: '2019/08/01', end_date: '2019/09/15', status: 'PENDING' }
   ])
 end

@@ -6,9 +6,9 @@ class CatsController < ApplicationController
 
   def show
     @cat = Cat.find_by_id(params[:id])
-    @rentals = @cat.cat_rental_requests.order(start_date: :asc, end_date: :asc)
 
     if @cat
+      @rentals = @cat.cat_rental_requests.order(start_date: :asc, end_date: :asc)
       render :show
     else
       redirect_to cats_url
@@ -34,6 +34,7 @@ class CatsController < ApplicationController
   def new
     @cat = Cat.new
 
+    flash[:error] = nil
     render :new
   end
 
@@ -43,6 +44,7 @@ class CatsController < ApplicationController
     if @cat.save
       redirect_to cat_url(@cat)
     else
+      flash[:error] = @cat.errors
       render :new
     end
   end
