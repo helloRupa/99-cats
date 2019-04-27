@@ -1,0 +1,28 @@
+<h1>Rent a Cat!</h1>
+<% if flash[:error] %>
+    <% flash[:error].each do |err, msg| %>
+    <div><%= msg %></div>
+    <% end %>
+<% end %>
+
+<form action="<%= cat_rental_requests_url %>" method="post">
+    <label for="cat-id">Cat</label>
+    <select id="cat-id" name="rental[cat_id]">
+        <% @cats.each do |cat| %>
+        <option value="<%= cat.id %>" <%= "selected" if @rental.cat_id == cat.id %>>
+            <%= cat.name.capitalize %>
+        </option>
+        <% end %>
+    </select>
+    <br><br>
+
+    <label for="start-date">Start</label>
+    <input type="date" id="start-date" name="rental[start_date]" min="<%= Date.current %>" value="<%= @rental.start_date || Date.current %>">
+    <br><br>
+
+    <label for="end-date">End</label>
+    <input type="date" id="end-date" name="rental[end_date]" min="<%= Date.current %>" value="<%= @rental.end_date || Date.current %>">
+    <br><br>
+
+    <input type="submit" value="Rent Cat">
+</form>

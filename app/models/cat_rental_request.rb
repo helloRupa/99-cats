@@ -11,11 +11,11 @@ class CatRentalRequest < ApplicationRecord
     msg = 'Dates must be today or in the future, start date must be earlier or same as end date'
     errors.add(:start_date, :end_date, message: msg) unless valid
   end
-
+  
   def overlapping_requests
     CatRentalRequest.where(cat_id: self.cat_id)
       .where.not(id: self.id)
-      .where('start_date BETWEEN ? AND ? OR end_date BETWEEN ? AND ?', self.start_date, self.end_date, self.start_date, self.end_date)
+      .where.not('start_date > ? AND start_date > ? OR end_date < ?', self.start_date, self.end_date, self.start_date)
   end
 
   def overlapping_approved_requests
