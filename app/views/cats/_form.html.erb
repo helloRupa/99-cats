@@ -1,5 +1,9 @@
-<form action="<%= cat_url(cat) %>" method="post">
-    <input type="hidden" name="_method" value="PATCH">
+<% action_url = cat.persisted? ? cat_url(cat) : cats_url %>
+<% form_method = cat.persisted? ? "PATCH" : "POST" %>
+<% btn_text = cat.persisted? ? "Update Cat" : "Create Cat" %>
+
+<form action="<%= action_url %>" method="post">
+    <input type="hidden" name="_method" value=<%= form_method %>>
 
     <label for="name">Name</label>
     <input type="text" id="name" name="cat[name]" value="<%= cat.name %>">
@@ -31,5 +35,5 @@
     <textarea id="description" name="cat[description]"><%= cat.description %></textarea>
     <br><br>
 
-    <input type="submit" value="Update Cat">
+    <input type="submit" value=<%= btn_text %>>
 </form>
