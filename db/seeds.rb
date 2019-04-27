@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 ActiveRecord::Base.transaction do
   # Clear all tables and reset id value
-  [Cat].each do |c|
+  [Cat, CatRentalRequest].each do |c|
     ActiveRecord::Base.connection.execute("TRUNCATE TABLE #{c.table_name} RESTART IDENTITY;")
   end
   
