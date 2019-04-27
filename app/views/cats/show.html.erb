@@ -19,3 +19,21 @@
         </tr>
     </tbody>
 </table>
+
+<h2>Rental Requests</h2>
+<table>
+    <tr>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Status</th>
+    </tr>
+    <tbody>
+    <% @rentals.each do |rental| %>
+        <tr>
+            <td><%= rental.start_date %></td>
+            <td><%= rental.end_date %></td>
+            <td><%= rental.status %></td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
