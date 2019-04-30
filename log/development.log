@@ -3791,3 +3791,620 @@ Processing by CatsController#index as HTML
 Completed 200 OK in 35ms (Views: 31.6ms | ActiveRecord: 2.7ms)
 
 
+Started GET "/cats" for 127.0.0.1 at 2019-04-29 19:39:43 -0700
+  [1m[35m (41.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/middleware.rb:84
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.0ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:5
+  Rendered cats/index.html.erb within layouts/application (23.3ms)
+Completed 200 OK in 249ms (Views: 211.3ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/cats" for 127.0.0.1 at 2019-04-29 19:40:31 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:5
+  Rendered cats/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 31ms (Views: 28.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/cats" for 127.0.0.1 at 2019-04-29 19:40:48 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.7ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:5
+  Rendered cats/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 32ms (Views: 30.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cats/1" for 127.0.0.1 at 2019-04-29 19:41:03 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (12.0ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Exists (42.3ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 1]]
+  ↳ app/views/cats/show.html.erb:32
+  [1m[36mCatRentalRequest Load (3.1ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC[0m  [["cat_id", 1]]
+  ↳ app/views/cats/show.html.erb:42
+  Rendered cats/show.html.erb within layouts/application (76.9ms)
+Completed 200 OK in 180ms (Views: 53.8ms | ActiveRecord: 69.1ms)
+
+
+Started GET "/cats/1" for 127.0.0.1 at 2019-04-29 19:45:32 -0700
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/middleware.rb:84
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (1.0ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.7ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.1ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  Rendered cats/show.html.erb within layouts/application (333.5ms)
+Completed 500 Internal Server Error in 418ms (ActiveRecord: 17.5ms)
+
+
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+
+NameError - undefined local variable or method `cat' for #<#<Class:0x00007fc9e3c392e0>:0x00007fc9e3c25ee8>
+Did you mean?  @cat:
+  app/views/cats/show.html.erb:2:in `_app_views_cats_show_html_erb___4244153404858366097_70252543060480'
+  app/controllers/cats_controller.rb:12:in `show'
+
+Started POST "/__better_errors/e5309425dc295b99/variables" for 127.0.0.1 at 2019-04-29 19:45:33 -0700
+  [1m[36mCatRentalRequest Load (0.5ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.2ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.1ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.2ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.1ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.7ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+Started GET "/cats/1" for 127.0.0.1 at 2019-04-29 19:45:50 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.5ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.1ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.1ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.1ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.1ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.1ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.1ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.1ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.1ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.1ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.1ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.3ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.1ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.1ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.1ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.1ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.1ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.1ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/cats_controller.rb:12
+  Rendered cats/show.html.erb within layouts/application (1263.7ms)
+Completed 500 Internal Server Error in 1274ms (ActiveRecord: 3.7ms)
+
+
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.1ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.1ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/raised_exception.rb:14
+
+NameError - undefined local variable or method `cat' for #<#<Class:0x00007fc9e3c392e0>:0x00007fc9e3a22088>
+Did you mean?  @cat:
+  app/views/cats/show.html.erb:2:in `_app_views_cats_show_html_erb___4244153404858366097_70252535710040'
+  app/controllers/cats_controller.rb:12:in `show'
+
+Started POST "/__better_errors/a0cad34400dcb202/variables" for 127.0.0.1 at 2019-04-29 19:45:52 -0700
+  [1m[36mCatRentalRequest Load (1.7ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.1ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.2ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.1ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/inspectable_value.rb:28
+Started GET "/cats/1" for 127.0.0.1 at 2019-04-29 19:46:10 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (9.7ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 1]]
+  ↳ app/views/cats/show.html.erb:33
+  [1m[36mCatRentalRequest Load (1.5ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC[0m  [["cat_id", 1]]
+  ↳ app/views/cats/show.html.erb:43
+  Rendered cats/show.html.erb within layouts/application (136.8ms)
+Completed 200 OK in 463ms (Views: 446.8ms | ActiveRecord: 11.8ms)
+
+
+Started GET "/cats/1" for ::1 at 2019-04-29 21:51:24 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/middleware.rb:84
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (2.5ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 1]]
+  ↳ app/views/cats/show.html.erb:34
+  [1m[36mCatRentalRequest Load (0.9ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC[0m  [["cat_id", 1]]
+  ↳ app/views/cats/show.html.erb:44
+  Rendered cats/show.html.erb within layouts/application (24.5ms)
+Completed 200 OK in 271ms (Views: 189.5ms | ActiveRecord: 19.2ms)
+
+
+Started GET "/cats/1" for ::1 at 2019-04-29 22:00:45 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (1.0ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Exists (3.5ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 1]]
+  ↳ app/views/cats/show.html.erb:34
+  [1m[36mCatRentalRequest Load (1.0ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC[0m  [["cat_id", 1]]
+  ↳ app/views/cats/show.html.erb:44
+  Rendered cats/show.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 72ms (Views: 60.0ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/cats/1" for ::1 at 2019-04-29 22:01:48 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (1.1ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 1]]
+  ↳ app/views/cats/show.html.erb:34
+  [1m[36mCatRentalRequest Load (4.0ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC[0m  [["cat_id", 1]]
+  ↳ app/views/cats/show.html.erb:44
+  Rendered cats/show.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 41ms (Views: 33.6ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/cats" for ::1 at 2019-04-29 22:02:04 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:5
+  Rendered cats/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cats" for ::1 at 2019-04-29 22:02:34 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (2.0ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:5
+  Rendered cats/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 46ms (Views: 43.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/cats" for ::1 at 2019-04-29 22:03:44 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:5
+  Rendered cats/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 36ms (Views: 34.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cats" for ::1 at 2019-04-29 22:04:01 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:5
+  Rendered cats/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 32ms (Views: 31.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cats" for ::1 at 2019-04-29 22:04:10 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:5
+  Rendered cats/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 41ms (Views: 39.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cats/1" for ::1 at 2019-04-29 22:04:17 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 1]]
+  ↳ app/views/cats/show.html.erb:34
+  [1m[36mCatRentalRequest Load (0.5ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC[0m  [["cat_id", 1]]
+  ↳ app/views/cats/show.html.erb:44
+  Rendered cats/show.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 33ms (Views: 29.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/cats/1" for ::1 at 2019-04-29 22:04:28 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 1]]
+  ↳ app/views/cats/show.html.erb:34
+  [1m[36mCatRentalRequest Load (0.7ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC[0m  [["cat_id", 1]]
+  ↳ app/views/cats/show.html.erb:44
+  Rendered cats/show.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 47ms (Views: 43.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/cats/1" for ::1 at 2019-04-29 22:05:29 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 1]]
+  ↳ app/views/cats/show.html.erb:34
+  [1m[36mCatRentalRequest Load (0.4ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC[0m  [["cat_id", 1]]
+  ↳ app/views/cats/show.html.erb:44
+  Rendered cats/show.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 50ms (Views: 47.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/cats/1" for ::1 at 2019-04-29 22:06:17 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 1]]
+  ↳ app/views/cats/show.html.erb:34
+  [1m[36mCatRentalRequest Load (0.4ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC[0m  [["cat_id", 1]]
+  ↳ app/views/cats/show.html.erb:44
+  Rendered cats/show.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 38ms (Views: 34.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/cats/1" for ::1 at 2019-04-29 22:06:34 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.8ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 1]]
+  ↳ app/views/cats/show.html.erb:34
+  [1m[36mCatRentalRequest Load (0.3ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC[0m  [["cat_id", 1]]
+  ↳ app/views/cats/show.html.erb:44
+  Rendered cats/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 36ms (Views: 32.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/cats/1" for ::1 at 2019-04-29 22:07:15 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.7ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 1]]
+  ↳ app/views/cats/show.html.erb:34
+  [1m[36mCatRentalRequest Load (0.9ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC[0m  [["cat_id", 1]]
+  ↳ app/views/cats/show.html.erb:44
+  Rendered cats/show.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 55ms (Views: 51.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/cats/1" for ::1 at 2019-04-29 22:08:02 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 1]]
+  ↳ app/views/cats/show.html.erb:34
+  [1m[36mCatRentalRequest Load (0.9ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC[0m  [["cat_id", 1]]
+  ↳ app/views/cats/show.html.erb:44
+  Rendered cats/show.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 54ms (Views: 50.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/cats" for ::1 at 2019-04-29 22:08:13 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.6ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:5
+  Rendered cats/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 33ms (Views: 31.8ms | ActiveRecord: 0.6ms)
+
+
