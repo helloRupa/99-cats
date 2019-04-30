@@ -3,28 +3,30 @@
     <% flash[:error].each do |err| %>
     <div class="error"><%= err %></div>
     <% end %>
-    <br><br>
 <% end %>
 
 <form action="<%= cat_rental_requests_url %>" method="post">
-    <label for="cat-id">Cat</label>
-    <select id="cat-id" name="rental[cat_id]">
-        <option selected disabled>--Select Cat--</option>
-        <% @cats.each do |cat| %>
-        <option value="<%= cat.id %>" <%= "selected" if @rental.cat_id == cat.id %>>
-            <%= cat.name.capitalize %>
-        </option>
-        <% end %>
-    </select>
-    <br><br>
+    <div>
+        <label for="cat-id">Cat</label>
+        <select id="cat-id" name="rental[cat_id]">
+            <option selected disabled>--Select Cat--</option>
+            <% @cats.each do |cat| %>
+                <option value="<%= cat.id %>" <%= "selected" if @rental.cat_id == cat.id %>>
+                    <%= cat.name.capitalize %>
+            </option>
+            <% end %>
+        </select>
+    </div>
 
-    <label for="start-date">Start</label>
-    <input type="date" id="start-date" name="rental[start_date]" min="<%= Date.current %>" value="<%= @rental.start_date || Date.current %>">
-    <br><br>
+    <div>
+        <label for="start-date">Start</label>
+        <input type="date" id="start-date" name="rental[start_date]" min="<%= Date.current %>" value="<%= @rental.start_date || Date.current %>">
+    </div>
 
-    <label for="end-date">End</label>
-    <input type="date" id="end-date" name="rental[end_date]" min="<%= Date.current %>" value="<%= @rental.end_date || Date.current %>">
-    <br><br>
+    <div>
+        <label for="end-date">End</label>
+        <input type="date" id="end-date" name="rental[end_date]" min="<%= Date.current %>" value="<%= @rental.end_date || Date.current %>">
+    </div>
 
     <input type="submit" value="Rent Cat">
 </form>
