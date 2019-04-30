@@ -1,7 +1,7 @@
 <h1>Add a Cat!</h1>
 <% if flash[:error] %>
     <% flash[:error].each do |err, msg| %>
-        <div><%= err.to_s.split('_').join(' ').capitalize %> <%= msg %></div>
+        <div class="error"><%= err.to_s.split('_').join(' ').capitalize %> <%= msg %></div>
     <% end %>
     <br><br>
 <% end %>

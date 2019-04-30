@@ -1,7 +1,7 @@
 <h1>Rent a Cat!</h1>
 <% if flash[:error] %>
     <% flash[:error].each do |err| %>
-    <div><%= err %></div>
+    <div class="error"><%= err %></div>
     <% end %>
     <br><br>
 <% end %>

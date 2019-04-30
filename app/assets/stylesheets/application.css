@@ -139,3 +139,71 @@ th {
 h2 {
     font-size: 2.5em;
 }
+
+form {
+    background-color: white;
+    margin: auto;
+    padding: 30px;
+    text-align: center;
+    width: 50%;
+}
+
+form div {
+    font-size: 1.5em;
+    display: table;
+    margin: 0 auto 30px auto;
+}
+
+label {
+    font-size: 1.2em;
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: 30px;
+}
+
+input {
+    font-size: 1em;
+}
+
+input[type="text"] {
+    padding: 5px;
+    border: 1px solid #58355c;
+    display: table-cell;
+}
+
+input[type="radio"] {
+    margin: 10px;
+}
+
+input[type="date"] {
+    border: 1px solid #58355c;
+    padding: 5px;
+    font-size: 0.9em;
+}
+
+select {
+    border: 1px solid #58355c;
+    padding: 5px;
+    font-size: 1em;
+}
+
+textarea {
+    border: 1px solid #58355c;
+    width: 250px;
+    height: 200px;
+    font-size: 1em;
+}
+
+input[type="submit"] {
+    font-size: 2em;
+    background-color: var(--main-bg-color);
+    color: #fff;
+    padding: 5px 20px;
+    cursor: pointer;
+}
+
+div.error {
+    text-align: center;
+    font-size: 1.75em;
+    color: var(--cat-name-hover-color);
+}
