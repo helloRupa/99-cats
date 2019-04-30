@@ -1,0 +1,5 @@
+<% if flash[:error] %>
+    <% flash[:error].each do |err, msg| %>
+        <div class="error"><%= err.to_s.split('_').join(' ').capitalize %> <%= msg %></div>
+    <% end %>
+<% end %>

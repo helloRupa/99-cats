@@ -142,7 +142,7 @@ h2 {
 
 form {
     background-color: white;
-    margin: auto;
+    margin: 30px auto;
     padding: 30px;
     text-align: center;
     width: 50%;
@@ -200,6 +200,10 @@ input[type="submit"] {
     color: #fff;
     padding: 5px 20px;
     cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--cat-name-hover-color);
 }
 
 div.error {
