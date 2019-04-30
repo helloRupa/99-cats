@@ -13,3 +13,103 @@
  *= require_tree .
  *= require_self
  */
+
+:root {
+    --main-bg-color: #fc6471;
+    --logo-color: #fcea9e;
+    --link-color: #6e2c45;
+    --logo-hover-color: #fff6d6;
+    --add-cat-hover-color: #63aba6;
+    --cat-name-hover-color: #b92bb9;
+}
+
+html, body, header, h1, a, div, input, button, textarea, select, section {
+    margin: 0;
+    padding: 0;
+    font-family: 'Amatic SC', cursive;
+    font-size: 16px;
+    font-weight: 400;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: none;
+}
+
+body {
+    margin: auto;
+    width: 100;
+    height: auto;
+}
+
+header {
+    padding: 10px 30px;
+    background-color: var(--main-bg-color);
+}
+
+h1 a {
+    font-weight: 700;
+    font-size: 2.27em;
+    text-decoration: none;
+    color: var(--logo-color);
+}
+
+h1 a:hover {
+    color: var(--logo-hover-color);
+}
+
+main {
+    background-color: var(--logo-color);
+    width: 85%;
+    margin: 60px auto;
+    position: relative;
+}
+
+main h1 {
+    font-size: 4em;
+    text-align: center;
+    padding-top: 60px;
+    color: var(--main-bg-color);
+}
+
+.add-cat {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 2em;
+    color: var(--link-color);
+}
+
+.add-cat:before {
+    content: '+ ';
+}
+
+.add-cat:hover {
+    color: var(--add-cat-hover-color);
+}
+
+section.all-cats {
+    width: 880px;
+    margin: auto;
+    padding: 30px 0 60px 0;
+}
+
+.cat-home {
+    display: inline-block;
+    background-color: #fff;
+    padding: 15px;
+    margin: 15px;
+    text-align: center;
+}
+
+.cat-home img {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.cat-home a {
+    font-size: 2em;
+    color: var(--main-bg-color);
+}
+
+.cat-home a:hover {
+    color: var(--cat-name-hover-color);
+}

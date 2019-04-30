@@ -1,9 +1,11 @@
 <h1>All the Cats!</h1>
 
-<%= link_to 'Add New Cat', new_cat_url %>
-
-<ul>
+<%= link_to 'Add New Cat', new_cat_url, class: "add-cat" %>
+<section class="all-cats">
     <% @cats.each do |cat| %>
-        <li><%= link_to cat.name, cat_url(cat) %></li>
+        <div class="cat-home">
+            <img src="<%= cat.image_url %>" alt="Cute Cat Photo">
+            <%= link_to cat.name, cat_url(cat) %>
+        </div>
     <% end %>
-</ul>
+</section>
