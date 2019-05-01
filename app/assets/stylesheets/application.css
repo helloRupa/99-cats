@@ -22,9 +22,10 @@
     --add-cat-hover-color: #63aba6;
     --cat-name-hover-color: #b92bb9;
     --body-text-color: #6f3d6f;
+    --border: 1px solid #58355c;
 }
 
-html, body, header, h1, a, div, input, button, textarea, select, section {
+html, body, header, h1, h2, a, div, form, label, input, button, textarea, select, section {
     margin: 0;
     padding: 0;
     font-family: 'Amatic SC', cursive;
@@ -33,13 +34,13 @@ html, body, header, h1, a, div, input, button, textarea, select, section {
     box-sizing: border-box;
     background-color: transparent;
     border: none;
+    color: var(--body-text-color);
 }
 
 body {
     margin: auto;
     width: 100;
     height: auto;
-    color: var(--body-text-color);
 }
 
 header {
@@ -113,9 +114,9 @@ section.all-cats {
     text-align: center;
 }
 
-.cat-home img {
+img {
     display: block;
-    margin-bottom: 15px;
+    margin: 0 auto 15px auto;
     width: 230px;
     height: 230px;
 }
@@ -147,7 +148,7 @@ h2 {
 }
 
 form {
-    background-color: white;
+    background-color: #ffffff;
     margin: 30px auto;
     padding: 30px;
     text-align: center;
@@ -162,8 +163,6 @@ form div {
 
 label {
     font-size: 1.2em;
-    display: table-cell;
-    vertical-align: middle;
     padding-right: 30px;
 }
 
@@ -171,10 +170,15 @@ input {
     font-size: 1em;
 }
 
-input[type="text"] {
+input[type="text"], input[type="date"], select, textarea {
     padding: 5px;
-    border: 1px solid #58355c;
+    border: var(--border);
+    font-size: 1em;
+}
+
+label, input[type="text"] {
     display: table-cell;
+    vertical-align: middle;
 }
 
 input[type="radio"] {
@@ -182,22 +186,12 @@ input[type="radio"] {
 }
 
 input[type="date"] {
-    border: 1px solid #58355c;
-    padding: 5px;
     font-size: 0.9em;
 }
 
-select {
-    border: 1px solid #58355c;
-    padding: 5px;
-    font-size: 1em;
-}
-
 textarea {
-    border: 1px solid #58355c;
     width: 250px;
     height: 200px;
-    font-size: 1em;
 }
 
 input[type="submit"] {
@@ -233,7 +227,7 @@ form.button_to input[type="submit"] {
 
 div.msg {
     font-size: 1.75em;
-    margin-bottom: 30px;
+    margin: 30px auto;
     background-color: var(--logo-hover-color);
     padding: 5px 0;
 }
