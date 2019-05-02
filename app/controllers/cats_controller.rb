@@ -49,9 +49,6 @@ class CatsController < ApplicationController
     end
   end
 
-  def destroy
-  end
-
   private
 
   def cat_params
