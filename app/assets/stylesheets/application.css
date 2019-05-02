@@ -25,7 +25,7 @@
     --border: 1px solid #58355c;
 }
 
-html, body, header, h1, h2, a, div, form, label, input, button, textarea, select, section {
+html, body, header, h1, h2, a, p, div, form, label, input, button, textarea, select, section {
     margin: 0;
     padding: 0;
     font-family: 'Amatic SC', cursive;
@@ -48,15 +48,51 @@ header {
     background-color: var(--main-bg-color);
 }
 
-h1 a {
+header h1 a {
     font-weight: 700;
     font-size: 2.27em;
     text-decoration: none;
     color: var(--logo-color);
 }
 
-h1 a:hover {
+h1 a:hover, div.login a:hover {
     color: var(--logo-hover-color);
+}
+
+div.login {
+    position: absolute;
+    right: 30px;
+    top: 10px;
+}
+
+div.login a, div.login p {
+    color: var(--logo-color);
+    margin-right: 30px;
+}
+
+div.login p {
+    display: inline-block;
+    font-size: 2em;
+}
+
+div.login form {
+    display: inline-block;
+    border: none;
+    text-decoration: underline;
+    background-color: transparent;
+    font-size: 2em;
+    color: #ffffff;
+    width: auto;
+}
+
+div.login input[type="submit"] {
+    background-color: inherit;
+}
+
+div.login input[type="submit"]:hover {
+    background-color: transparent;
+    color: var(--logo-color);
+    text-decoration: underline;
 }
 
 main {
@@ -170,13 +206,13 @@ input {
     font-size: 1em;
 }
 
-input[type="text"], input[type="date"], select, textarea {
+input[type="text"], input[type="password"], input[type="date"], select, textarea {
     padding: 5px;
     border: var(--border);
     font-size: 1em;
 }
 
-label, input[type="text"] {
+label, input[type="text"], input[type="password"] {
     display: table-cell;
     vertical-align: middle;
 }

@@ -1,0 +1,23 @@
+<% @title = 'Register' %>
+
+<h1>Register New User</h1>
+
+<% if flash[:error] %>
+    <% flash[:error].each do |key, value| %>
+        <div class="error"><%= key %> <%= value %></div>
+    <% end %>
+<% end %>
+
+<form action="<%= users_url %>" method="post">
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="user[username]" value="<%= @user.username %>">
+    </div>
+
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="user[password]">
+    </div>
+
+    <input type="submit" value="Create User">
+</form>

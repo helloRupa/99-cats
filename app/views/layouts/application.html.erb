@@ -12,7 +12,16 @@
 
   <body>
     <header>
-      <h1><%= link_to '99 Cats', cats_url %></h1>
+      <h1><%= link_to "99 Cats", cats_url %></h1>
+      <div class="login">
+        <% if current_user %>
+          <p><%= current_user.username %></p>
+          <%= button_to "Logout", session_url(current_user), method: :delete %>
+        <% else %>
+          <%= link_to "Log In", new_session_url %>
+          <%= link_to "Sign Up", new_user_url %>
+        <% end %>
+      </div>
     </header>
     <main>
       <%= yield %>

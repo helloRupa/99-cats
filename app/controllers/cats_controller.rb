@@ -34,7 +34,6 @@ class CatsController < ApplicationController
 
   def new
     @cat = Cat.new
-
     render :new
   end
 

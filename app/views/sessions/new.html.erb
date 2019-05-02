@@ -3,15 +3,16 @@
 <h1>Log In</h1>
 
 <% if flash[:error] %>
-    <% flash[:error].each do |key, value| %>
-        <div class="error"><%= key %> <%= value %></div>
-    <% end %>
+    <div class="error"><%= flash[:error] %></div>
 <% end %>
 
-<form action="session_url" method="post">
+<form action="<%= session_url %>" method="post">
     <div>
         <label for="username">Username:</label>
-        <input type="text" id="username" name="user[username]" value="<%= @user.username %>">
+        <input type="text" id="username" name="user[username]" 
+            <% if params.key?(:user) && params[:user].key?(:username) %>
+                value="<%= params[:user][:username] %>"
+            <% end %>>
     </div>
 
     <div>
