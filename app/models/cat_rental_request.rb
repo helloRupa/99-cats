@@ -9,7 +9,7 @@ class CatRentalRequest < ApplicationRecord
   def valid_dates
     valid = !self.start_date.nil? && !self.end_date.nil? && self.start_date >= Date.current && self.start_date <= self.end_date
     msg = 'Dates must be today or in the future'
-    errors.add(:start_date, :end_date, message: msg) unless valid
+    errors.add(:start_date, message: msg) unless valid
   end
   
   def overlapping_requests
@@ -27,7 +27,7 @@ class CatRentalRequest < ApplicationRecord
   end
 
   def does_not_overlap_approved_request
-    errors.add(:start_date, :end_date, message: 'Cat unavailable on those dates') if overlapping_approved_requests.exists?
+    errors.add(:start_date, message: 'Cat unavailable on those dates') if overlapping_approved_requests.exists?
   end
 
   def deny_overlapping!

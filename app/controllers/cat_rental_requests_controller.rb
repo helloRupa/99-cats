@@ -8,7 +8,6 @@ class CatRentalRequestsController < ApplicationController
     
     @cats = Cat.all
 
-    flash[:error] = nil
     render :new
   end
 
@@ -19,7 +18,7 @@ class CatRentalRequestsController < ApplicationController
     if @rental.save
       redirect_to cat_url(@rental.cat_id)
     else
-      flash[:error] = ['All fields are required', 'Start date must be in the future and before end date', 'Dates must not conflict with an existing approved rental']
+      flash.now[:error] = @rental.errors
       render :new
     end
   end

@@ -1,9 +1,12 @@
 <% @title = 'Rent a Cat' %>
 
 <h1>Rent a Cat!</h1>
+
 <% if flash[:error] %>
-    <% flash[:error].each do |err| %>
-    <div class="error"><%= err %></div>
+    <% flash[:error].each do |key, value| %>
+      <div class="error">
+            <%= value[:message] %>
+      </div>
     <% end %>
 <% end %>
 
