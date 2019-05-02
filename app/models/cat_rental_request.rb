@@ -27,6 +27,8 @@ class CatRentalRequest < ApplicationRecord
   end
 
   def does_not_overlap_approved_request
+    return unless pending?
+
     errors.add(:start_date, message: 'Cat unavailable on those dates') if overlapping_approved_requests.exists?
   end
 
@@ -38,6 +40,8 @@ class CatRentalRequest < ApplicationRecord
   end
   
   def approve!
+    raise 'Not Pending' unless pending?
+
     CatRentalRequest.transaction do
       self.status = 'APPROVED'
       self.save!
@@ -49,5 +53,11 @@ class CatRentalRequest < ApplicationRecord
   def deny!
     self.status = 'DENIED'
     self.save
+  end
+
+  private
+
+  def pending?
+    self.status == 'PENDING'
   end
 end
