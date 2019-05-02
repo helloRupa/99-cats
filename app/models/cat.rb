@@ -4,7 +4,7 @@ require 'action_view/helpers'
 class Cat < ApplicationRecord
   include ActionView::Helpers::DateHelper
 
-  COLORS = %w[black white grey ginger blue brown calico]
+  COLORS = %w[black white grey ginger blue brown calico].freeze
 
   validates :birth_date, :color, :name, :sex, :description, presence: true
   validates :color, inclusion: { in: COLORS, message: "%{value} is not a valid color" }
