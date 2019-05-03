@@ -1,4 +1,6 @@
 class CatRentalRequestsController < ApplicationController
+  before_action :not_logged_in, only: [:new, :create, :approve, :deny]
+
   def new
     if params.key?(:cat_id)
       @rental = CatRentalRequest.new(cat_id: params[:cat_id])
