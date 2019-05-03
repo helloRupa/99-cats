@@ -19857,3 +19857,52 @@ Processing by CatsController#show as HTML
 Completed 200 OK in 59ms (Views: 50.4ms | ActiveRecord: 4.2ms)
 
 
+Started GET "/" for ::1 at 2019-05-03 16:34:44 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/middleware.rb:84
+Processing by CatsController#index as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "LOWER(name)". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/flagpuppy/Desktop/Studying/App Academy/Projects/99 Cats/ninety_nine_cats/app/controllers/cats_controller.rb:7)
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (2.9ms)[0m  [1m[34mSELECT "cats".* FROM "cats" ORDER BY LOWER(name)[0m
+  ↳ app/views/cats/index.html.erb:7
+  Rendered cats/index.html.erb within layouts/application (55.9ms)
+Completed 200 OK in 317ms (Views: 279.1ms | ActiveRecord: 16.3ms)
+
+
+Started GET "/cats/7" for ::1 at 2019-05-03 16:34:52 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCat Load (0.6ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:12
+  Rendering cats/show.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (1.1ms)
+  [1m[36mCatRentalRequest Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 LIMIT $2[0m  [["cat_id", 7], ["LIMIT", 1]]
+  ↳ app/views/cats/show.html.erb:28
+  [1m[36mCatRentalRequest Load (7.3ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC[0m  [["cat_id", 7]]
+  ↳ app/views/cats/_rentals.html.erb:9
+  [1m[36mCACHE CatRentalRequest Load (0.3ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC[0m  [["cat_id", 7]]
+  ↳ app/views/cats/_rentals.html.erb:11
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 6], ["id", 7]]
+  ↳ app/views/cats/_rentals.html.erb:11
+  Rendered cats/_rentals.html.erb (113.5ms)
+  Rendered cats/show.html.erb within layouts/application (137.9ms)
+Completed 200 OK in 212ms (Views: 132.1ms | ActiveRecord: 44.3ms)
+
+
+Started GET "/cats/7/edit" for ::1 at 2019-05-03 16:34:55 -0700
+Processing by CatsController#edit as HTML
+  Parameters: {"id"=>"7"}
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :not_logged_in rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2019-05-03 16:34:55 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (1.0ms)
+  Rendered shared/_login_form.html.erb (3.7ms)
+  Rendered sessions/new.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 53ms (Views: 51.7ms | ActiveRecord: 0.0ms)
+
+
