@@ -22,7 +22,7 @@ class CatRentalRequestsController < ApplicationController
     if @rental.save
       redirect_to cat_url(@rental.cat_id)
     else
-      flash.now[:error] = @rental.errors
+      flash.now[:error] = @rental.errors.values[0]
       render :new
     end
   end

@@ -2,13 +2,7 @@
 
 <h1>Rent a Cat!</h1>
 
-<% if flash[:error] %>
-    <% flash[:error].each do |key, value| %>
-      <div class="error">
-            <%= value[:message] %>
-      </div>
-    <% end %>
-<% end %>
+<%= render 'shared/errors' %>
 
 <form action="<%= cat_rental_requests_url %>" method="post">
     <input type="hidden", name="authenticity_token" value="<%= form_authenticity_token %>">

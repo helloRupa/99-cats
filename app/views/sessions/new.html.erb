@@ -2,8 +2,5 @@
 
 <h1>Log In</h1>
 
-<% if flash[:error] %>
-    <div class="error"><%= flash[:error] %></div>
-<% end %>
-
+<%= render 'shared/errors' %>
 <%= render 'shared/login_form' %>

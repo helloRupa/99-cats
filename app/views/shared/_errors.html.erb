@@ -1,0 +1,13 @@
+<% if flash[:error] %>
+    <% if flash[:error].is_a?(String) %>
+        <div class="error"><%= flash[:error] %></div>
+    <% else %>
+        <% flash[:error].each do |key, value| %>
+            <% if key.is_a?(Hash) %>
+                <div class="error"><%= key[:message] %></div>
+            <% else %>
+                <div class="error"><%= key.to_s.split('_').join(' ').capitalize %> <%= value %></div>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>
