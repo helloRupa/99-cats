@@ -1,6 +1,11 @@
 <% @title = "#{@cat.name}" %>
 
 <h1><%= @cat.name %></h1>
+
+<% if flash[:error] %>
+    <div class="error"><%= flash[:error] %></div>
+<% end %>
+
 <section class="cat-info">
     <img src="<%= @cat.image_url %>" alt="Photo of #{<%= @cat.name %>}">
     <table>

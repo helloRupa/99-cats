@@ -1,5 +1,6 @@
 class CatRentalRequestsController < ApplicationController
   before_action :not_logged_in, only: [:new, :create, :approve, :deny]
+  before_action :not_cat_owner, only: [:approve, :deny]
 
   def new
     if params.key?(:cat_id)
@@ -37,6 +38,12 @@ class CatRentalRequestsController < ApplicationController
     @rental.deny!
 
     redirect_to cat_url(@rental.cat_id)
+  end
+  
+  def not_cat_owner
+    return if current_user == CatRentalRequest.find_by_id(params[:id]).cat.owner
+    flash[:error] = "Only the cat's owner can approve or deny requests"
+    redirect_to request.referrer
   end
 
   private

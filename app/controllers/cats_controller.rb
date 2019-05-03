@@ -1,5 +1,6 @@
 class CatsController < ApplicationController
   before_action :not_logged_in, only: [:edit, :update, :new, :create]
+  before_action :not_cat_owner, only: [:edit, :update]
 
   def index
     @cats = Cat.all
@@ -41,6 +42,7 @@ class CatsController < ApplicationController
 
   def create
     @cat = Cat.new(cat_params)
+    @cat.user_id = current_user.id
 
     if @cat.save
       redirect_to cat_url(@cat)
@@ -48,6 +50,12 @@ class CatsController < ApplicationController
       flash.now[:error] = @cat.errors
       render :new
     end
+  end
+
+  def not_cat_owner
+    return unless current_user.cats.find_by_id(params[:id]).nil?
+    flash[:error] = "Only the cat's owner may update it"
+    redirect_to cat_url(params[:id])
   end
 
   private
