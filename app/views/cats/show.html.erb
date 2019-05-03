@@ -43,13 +43,15 @@
 <% else %>
     <table>
         <tr>
+            <th>Requestor</th>
             <th>Start Date</th>
             <th>End Date</th>
             <th>Status</th>
         </tr>
         <tbody>
-            <% @rentals.each do |rental| %>
+            <% @rentals.each_with_index do |rental, idx| %>
                 <tr>
+                    <td><%= @owners[idx].user.username %></td>
                     <td><%= rental.start_date %></td>
                     <td><%= rental.end_date %></td>
                     <td>

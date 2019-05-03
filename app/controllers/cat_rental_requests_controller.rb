@@ -16,6 +16,7 @@ class CatRentalRequestsController < ApplicationController
 
   def create
     @rental = CatRentalRequest.new(rental_params)
+    @rental.user_id = current_user.id
     @cats = Cat.all
 
     if @rental.save

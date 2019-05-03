@@ -13,6 +13,7 @@ class CatsController < ApplicationController
 
     if @cat
       @rentals = @cat.cat_rental_requests.order(start_date: :asc, end_date: :asc)
+      @owners = @rentals.includes(:user)
       render :show
     else
       redirect_to cats_url
