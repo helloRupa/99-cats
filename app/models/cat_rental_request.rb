@@ -22,6 +22,12 @@ class CatRentalRequest < ApplicationRecord
     self.save
   end
 
+  def self.cancel_expired_requests
+    expired = CatRentalRequest.where('start_date < ? AND status = ?', Date.current, 'PENDING')
+
+    expired.each { |req| req.deny! }
+  end
+
   private
 
   def pending?
