@@ -8,17 +8,4 @@
     <% end %>
 <% end %>
 
-<form action="<%= users_url %>" method="post">
-    <input type="hidden", name="authenticity_token" value="<%= form_authenticity_token %>">
-    <div>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="user[username]" value="<%= @user.username %>">
-    </div>
-
-    <div>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="user[password]">
-    </div>
-
-    <input type="submit" value="Create User">
-</form>
+<%= render 'shared/login_form' %>

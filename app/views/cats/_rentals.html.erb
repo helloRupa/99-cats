@@ -1,0 +1,25 @@
+<table>
+    <tr>
+        <% ['Requestor', 'Start Date', 'End Date', 'Status'].each do |title| %>
+            <th><%= title %></th>
+        <% end %>
+    </tr>
+    
+    <tbody>
+        <% rentals.each_with_index do |rental, idx| %>
+            <tr>
+                <td><%= owners[idx].user.username %></td>
+                <td><%= rental.start_date %></td>
+                <td><%= rental.end_date %></td>
+                <td>
+                    <% if current_user && rental.status == "PENDING" && is_owner? %>
+                        <%= button_to 'Approve', approve_cat_rental_request_url(rental.id) %>
+                        <%= button_to 'Deny', deny_cat_rental_request_url(rental.id) %>
+                    <% else %>
+                        <%= rental.status %>
+                    <% end %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

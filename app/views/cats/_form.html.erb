@@ -12,11 +12,10 @@
     </div>
 
     <div>
-        <input type="radio" id="male" name="cat[sex]" value="M" <%= "checked" if cat.sex == 'M' %>>
-        <label for="male">Male</label>
-
-        <input type="radio" id="female" name="cat[sex]" value="F" <%= "checked" if cat.sex == 'F' %>>
-        <label for="female">Female</label>
+        <% %w[male female].each do |gender| %>
+            <input type="radio" id="<%= gender %>" name="cat[sex]" value="<%= gender[0].upcase %>" <%= "checked" if cat.sex == gender[0].upcase %>>
+            <label for="<%= gender %>"><%= gender.capitalize %></label>
+        <% end %>
     </div>
 
     <div>

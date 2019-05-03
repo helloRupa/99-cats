@@ -7,29 +7,17 @@
 <% end %>
 
 <section class="cat-info">
+
     <img src="<%= @cat.image_url %>" alt="Photo of #{<%= @cat.name %>}">
+
     <table>
         <tbody>
-            <tr>
-                <th>Birth Date</th>
-                <td><%= @cat.birth_date %></td>
-            </tr>
-            <tr>
-                <th>Age</th>
-                <td><%= @cat.age.capitalize %></td>
-            </tr>
-            <tr>
-                <th>Sex</th>
-                <td><%= @cat.sex %></td>
-            </tr>
-            <tr>
-                <th>Color</th>
-                <td><%= @cat.color.capitalize %></td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td><%= @cat.description %></td>
-            </tr>
+            <% %w[birth_date age sex color description].each do |attr| %>
+                <tr>
+                    <th><%= attr.split('_').map(&:capitalize).join(' ') %></th>
+                    <td><%= @cat.send(attr).to_s.capitalize %></td>
+                </tr>
+            <% end %>
         </tbody>
     </table>
 
@@ -41,31 +29,7 @@
 <% if @rentals.empty? %>
     <div class="msg">No one has requested this cat yet. Why not be the first!</div>
 <% else %>
-    <table>
-        <tr>
-            <th>Requestor</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-            <th>Status</th>
-        </tr>
-        <tbody>
-            <% @rentals.each_with_index do |rental, idx| %>
-                <tr>
-                    <td><%= @owners[idx].user.username %></td>
-                    <td><%= rental.start_date %></td>
-                    <td><%= rental.end_date %></td>
-                    <td>
-                        <% if current_user && rental.status == "PENDING" && is_owner? %>
-                            <%= button_to 'Approve', approve_cat_rental_request_url(rental.id) %>
-                            <%= button_to 'Deny', deny_cat_rental_request_url(rental.id) %>
-                        <% else %>
-                            <%= rental.status %>
-                        <% end %>
-                    </td>
-                </tr>
-            <% end %>
-        </tbody>
-    </table>
+    <%= render 'rentals', rentals: @rentals, owners: @owners %>
 <% end %>
 
 <%= link_to "Request #{@cat.name}", new_cat_rental_request_url(cat_id: @cat.id) %>
