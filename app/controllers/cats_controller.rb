@@ -4,7 +4,7 @@ class CatsController < ApplicationController
   before_action :not_cat_owner, only: [:edit, :update]
 
   def index
-    @cats = Cat.all
+    @cats = Cat.all.order('LOWER(name)')
     render :index
   end
 
