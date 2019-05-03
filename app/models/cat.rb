@@ -6,7 +6,7 @@ class Cat < ApplicationRecord
 
   COLORS = %w[black white grey ginger blue brown calico].freeze
 
-  validates :birth_date, :color, :name, :sex, :description, :user_id, presence: true
+  validates :birth_date, :name, :description, presence: true
   validates :color, inclusion: { in: COLORS, message: "%{value} is not a valid color" }
   validates :sex, inclusion: { in: %w[M F], message: 'Must be M or F' }
 

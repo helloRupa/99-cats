@@ -15143,3 +15143,7 @@ Processing by CatsController#index as HTML
 Completed 200 OK in 35ms (Views: 32.8ms | ActiveRecord: 1.4ms)
 
 
+  [1m[36mCatRentalRequest Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" IS NULL AND "cat_rental_requests"."id" IS NOT NULL AND NOT (start_date > NULL AND start_date > NULL OR end_date < NULL) AND "cat_rental_requests"."status" = $1 LIMIT $2[0m  [["status", "APPROVED"], ["LIMIT", 1]]
+  [1m[36mCatRentalRequest Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" IS NULL AND "cat_rental_requests"."id" IS NOT NULL AND NOT (start_date > NULL AND start_date > NULL OR end_date < NULL) AND "cat_rental_requests"."status" = $1 LIMIT $2[0m  [["status", "APPROVED"], ["LIMIT", 1]]
+  [1m[36mCatRentalRequest Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" IS NULL AND "cat_rental_requests"."id" IS NOT NULL AND NOT (start_date > NULL AND start_date > NULL OR end_date < NULL) AND "cat_rental_requests"."status" = $1 LIMIT $2[0m  [["status", "APPROVED"], ["LIMIT", 1]]
+  [1m[36mCatRentalRequest Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" IS NULL AND "cat_rental_requests"."id" IS NOT NULL AND NOT (start_date > NULL AND start_date > NULL OR end_date < NULL) AND "cat_rental_requests"."status" = $1 LIMIT $2[0m  [["status", "APPROVED"], ["LIMIT", 1]]

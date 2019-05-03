@@ -1,5 +1,4 @@
 class CatRentalRequest < ApplicationRecord
-  validates :cat_id, :start_date, :end_date, :status, :user_id, presence: true
   validates :status, inclusion: { in: %w[PENDING APPROVED DENIED], message: 'Must be PENDING, APPROVED or DENIED' }
   validate :valid_dates, on: :create
   validate :does_not_overlap_approved_request, on: :create
