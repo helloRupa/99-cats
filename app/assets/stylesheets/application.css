@@ -72,7 +72,7 @@ div.login a, div.login p {
 
 div.login p {
     display: inline-block;
-    font-size: 2em;
+    font-size: 2.5em;
 }
 
 div.login form {
@@ -80,7 +80,7 @@ div.login form {
     border: none;
     text-decoration: underline;
     background-color: transparent;
-    font-size: 2em;
+    font-size: 2.5em;
     color: #ffffff;
     width: auto;
 }
