@@ -1,20 +1,24 @@
 <table>
+    <thead>
     <tr>
         <% ['Requestor', 'Start Date', 'End Date', 'Status'].each do |title| %>
-            <th><%= title %></th>
+            <th scope="col"><%= title %></th>
         <% end %>
     </tr>
+    </thead>
     
     <tbody>
         <% rentals.each_with_index do |rental, idx| %>
             <tr>
-                <td><%= owners[idx].user.username %></td>
-                <td><%= rental.start_date %></td>
-                <td><%= rental.end_date %></td>
-                <td>
+                <td data-label="Requestor"><%= owners[idx].user.username %></td>
+                <td data-label="Start Date"><%= rental.start_date %></td>
+                <td data-label="End Date"><%= rental.end_date %></td>
+                <td data-label="Status">
                     <% if current_user && rental.status == "PENDING" && is_owner? %>
-                        <%= button_to 'Approve', approve_cat_rental_request_url(rental.id) %>
-                        <%= button_to 'Deny', deny_cat_rental_request_url(rental.id) %>
+                        <div class="stacked-btns">
+                            <%= button_to 'Approve', approve_cat_rental_request_url(rental.id) %>
+                            <%= button_to 'Deny', deny_cat_rental_request_url(rental.id) %>
+                        </div>
                     <% else %>
                         <%= rental.status %>
                     <% end %>

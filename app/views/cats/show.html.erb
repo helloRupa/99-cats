@@ -8,16 +8,12 @@
 
     <img src="<%= @cat.image_url %>" alt="Photo of #{<%= @cat.name %>}">
 
-    <table>
-        <tbody>
-            <% %w[birth_date age sex color description].each do |attr| %>
-                <tr>
-                    <th><%= attr.split('_').map(&:capitalize).join(' ') %></th>
-                    <td><%= @cat.send(attr).to_s.capitalize %></td>
-                </tr>
-            <% end %>
-        </tbody>
-    </table>
+    <% %w[birth_date age sex color description].each do |attr| %>
+        <div>
+            <p class="title"><%= attr.split('_').map(&:capitalize).join(' ') %></p>
+            <p><%= @cat.send(attr).to_s.capitalize %></p>
+        </div>
+    <% end %>
 
     <%= link_to "Update #{@cat.name}", edit_cat_url(@cat) %>
 </section>

@@ -135,7 +135,7 @@ main h1 {
 
 section {
     margin: 0 auto 30px auto;
-    width: 50%;
+    width: 90%;
     text-align: center;
     background-color: white;
     padding: 30px;
@@ -155,6 +155,20 @@ section.all-cats {
     max-width: 100%;
 }
 
+.cat-info div {
+    margin: 15px 0;
+}
+
+.cat-info div p {
+    display: inline-block;
+    font-size: 1.75em;
+    padding: 10px;
+}
+
+.title {
+    font-weight: 700;
+}
+
 img {
     display: block;
     margin: 0 auto 15px auto;
@@ -172,6 +186,50 @@ a:hover {
 }
 
 table {
+    font-size: 1.25em;
+    margin: 15px 0;
+}
+
+table, thead, tbody, th, td, tr {
+    display: block;
+}
+
+tr:nth-child(2n+1) {
+    background-color: var(--logo-hover-color);
+}
+
+thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+td:before {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    content: attr(data-label);
+    font-weight: 700;
+}
+
+td {
+    position: relative;
+    padding: 10px 0 10px 50%;
+}
+
+div.stacked-btns {
+    margin: 0;
+    padding: 0;
+}
+
+.stacked-btns form {
+    text-align: center;
+}
+
+/* table {
     margin: 30px auto;
     font-size: 1.75em;
 }
@@ -182,7 +240,7 @@ th {
 
 td {
     padding: 15px 0;
-}
+} */
 
 h2 {
     font-size: 2.5em;
@@ -191,20 +249,26 @@ h2 {
 form {
     background-color: #ffffff;
     margin: 30px auto;
-    padding: 30px;
-    text-align: center;
-    width: 50%;
+    padding: 30px 15px;
+    text-align: left;
+    width: 90%;
 }
 
 form div {
-    font-size: 1.5em;
+    font-size: 1em;
     display: table;
-    margin: 0 auto 30px auto;
+    margin: 0 auto 15px auto;
 }
 
 label {
     font-size: 1.2em;
-    padding-right: 30px;
+    padding-right: 15px;
+}
+
+label[for="description"] {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
 }
 
 input {
@@ -222,6 +286,10 @@ label, input[type="text"], input[type="password"] {
     vertical-align: middle;
 }
 
+input[type="text"], input[type="password"] {
+    max-width: 90%;
+}
+
 input[type="radio"] {
     margin: 10px;
 }
@@ -231,12 +299,12 @@ input[type="date"] {
 }
 
 textarea {
-    width: 250px;
+    width: 100%;
     height: 200px;
 }
 
 input[type="submit"] {
-    font-size: 2em;
+    font-size: 1.5em;
     background-color: var(--main-bg-color);
     color: #fff;
     padding: 5px 20px;
@@ -256,14 +324,14 @@ div.error {
 form.button_to {
     padding: 0;
     margin: auto;
+    background-color: transparent;
 }
 
 form.button_to input[type="submit"] {
     font-size: 1em;
     margin-bottom: 10px;
     padding: 5px 0;
-    width: 90px;
-    margin-left: -17px;
+    width: 80px;
 }
 
 div.msg {
@@ -273,7 +341,23 @@ div.msg {
     padding: 5px 0;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 435px) {
+    table {
+        font-size: 1.75em;
+    }
+
+    textarea {
+        width: 250px;
+    }
+}
+
+@media only screen and (min-width: 925px) {
+    form, section {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 650px) {
     .add-cat, a {
         font-size: 2em;
     }
@@ -288,5 +372,18 @@ div.msg {
 
     .cat-home {
         margin: 15px;
+    }
+
+    form {
+        padding: 30px;
+    }
+
+    form div {
+        font-size: 1.5em;
+        margin: 0 auto 30px auto;
+    }
+
+    label {
+        padding-right: 30px;
     }
 }
