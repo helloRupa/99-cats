@@ -110,7 +110,7 @@ main {
 }
 
 main h1 {
-    font-size: 4em;
+    font-size: 3em;
     text-align: center;
     padding-top: 60px;
     color: var(--main-bg-color);
@@ -262,9 +262,8 @@ form div {
 
 label {
     font-size: 1.2em;
-    padding-right: 15px;
-    width: 120px;
-    word-break: break-all;
+    padding-right: 10px;
+    width: 150px;
     text-align: right;
 }
 
@@ -296,7 +295,7 @@ label, input[type="text"], input[type="password"] {
 }
 
 input[type="text"], input[type="password"] {
-    max-width: 200px;
+    max-width: 140px;
 }
 
 input[type="radio"] {
@@ -326,7 +325,7 @@ input[type="submit"]:hover {
 
 div.error {
     text-align: center;
-    font-size: 1.75em;
+    font-size: 1.25em;
     color: var(--cat-name-hover-color);
 }
 
@@ -350,7 +349,7 @@ div.msg {
     padding: 5px 0;
 }
 
-@media only screen and (min-width: 435px) and (max-resolution: 270dpi) {
+@media only screen and (min-width: 435px) {
     table {
         font-size: 1.75em;
     }
@@ -358,15 +357,70 @@ div.msg {
     textarea {
         width: 250px;
     }
-}
 
-@media only screen and (min-width: 925px) and (max-resolution: 270dpi) {
-    form, section {
-        width: 60%;
+    input[type="text"], input[type="password"] {
+        max-width: 200px;
     }
 }
 
-@media only screen and (min-width: 650px) and (max-resolution: 270dpi) {
+@media only screen and (min-width: 925px) {
+    form, section {
+        width: 75%;
+    }
+}
+
+@media only screen and (min-width: 720px) {
+    table {
+        display: table;
+        margin: 30px auto;
+        border-collapse: collapse;
+    }
+
+    tbody {
+        display: table-row-group;
+    }
+
+    th, td {
+        display: table-cell;
+        padding: 15px;
+    }
+    
+    tr:nth-child(2n) {
+        background-color: var(--logo-hover-color);
+    }
+
+    tr:nth-child(2n + 1) {
+        background-color: transparent;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr {
+        display: table-row;
+    }
+    
+    thead tr {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+    
+    td:before {
+        display: none;
+    }
+    
+    td {
+        position: relative;
+    }
+}
+
+@media only screen and (min-width: 650px) {
+    main h1 {
+        font-size: 4em;
+    }
+
     .add-cat, a {
         font-size: 2em;
     }
@@ -398,5 +452,9 @@ div.msg {
 
     input[type="radio"] + label {
         padding: 0 15px;
+    }
+
+    div.error {
+        font-size: 1.75em;
     }
 }
