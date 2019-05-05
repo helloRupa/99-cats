@@ -22662,3 +22662,225 @@ Processing by CatRentalRequestsController#new as HTML
 Completed 200 OK in 39ms (Views: 36.6ms | ActiveRecord: 0.8ms)
 
 
+Started GET "/cats" for 127.0.0.1 at 2019-05-04 19:11:00 -0700
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/middleware.rb:84
+Processing by CatsController#index as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "LOWER(name)". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/flagpuppy/Desktop/Studying/App Academy/Projects/99 Cats/ninety_nine_cats/app/controllers/cats_controller.rb:7)
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.6ms)[0m  [1m[34mSELECT "cats".* FROM "cats" ORDER BY LOWER(name)[0m
+  ↳ app/views/cats/index.html.erb:7
+  Rendered cats/index.html.erb within layouts/application (32.9ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 309ms (Views: 265.5ms | ActiveRecord: 18.3ms)
+
+
+Started GET "/cats" for 127.0.0.1 at 2019-05-04 19:12:17 -0700
+Processing by CatsController#index as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "LOWER(name)". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/flagpuppy/Desktop/Studying/App Academy/Projects/99 Cats/ninety_nine_cats/app/controllers/cats_controller.rb:7)
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.7ms)[0m  [1m[34mSELECT "cats".* FROM "cats" ORDER BY LOWER(name)[0m
+  ↳ app/views/cats/index.html.erb:7
+  Rendered cats/index.html.erb within layouts/application (3.8ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 45ms (Views: 42.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/cats/new" for 127.0.0.1 at 2019-05-04 19:12:21 -0700
+Processing by CatsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering cats/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (3.6ms)
+  Rendered cats/_form.html.erb (2.1ms)
+  Rendered cats/new.html.erb within layouts/application (18.2ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 47ms (Views: 44.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cats" for 127.0.0.1 at 2019-05-04 19:12:29 -0700
+Processing by CatsController#index as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "LOWER(name)". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/flagpuppy/Desktop/Studying/App Academy/Projects/99 Cats/ninety_nine_cats/app/controllers/cats_controller.rb:7)
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.7ms)[0m  [1m[34mSELECT "cats".* FROM "cats" ORDER BY LOWER(name)[0m
+  ↳ app/views/cats/index.html.erb:7
+  Rendered cats/index.html.erb within layouts/application (6.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 39ms (Views: 36.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/cats/1" for 127.0.0.1 at 2019-05-04 19:12:31 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:12
+  Rendering cats/show.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.5ms)
+  [1m[36mCatRentalRequest Exists (2.6ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 1]]
+  ↳ app/views/cats/show.html.erb:24
+  [1m[36mCatRentalRequest Load (0.6ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC[0m  [["cat_id", 1]]
+  ↳ app/views/cats/_rentals.html.erb:11
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC[0m  [["cat_id", 1]]
+  ↳ app/views/cats/_rentals.html.erb:13
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 5], ["id", 1]]
+  ↳ app/views/cats/_rentals.html.erb:13
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCat Load (1.6ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."user_id" = $1 AND "cats"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:64
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered cats/_rentals.html.erb (73.8ms)
+  Rendered cats/show.html.erb within layouts/application (93.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 172ms (Views: 107.6ms | ActiveRecord: 11.8ms)
+
+
+Started GET "/cat_rental_requests/new?cat_id=1" for 127.0.0.1 at 2019-05-04 19:12:35 -0700
+Processing by CatRentalRequestsController#new as HTML
+  Parameters: {"cat_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering cat_rental_requests/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.5ms)
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cat_rental_requests/new.html.erb:13
+  Rendered cat_rental_requests/new.html.erb within layouts/application (8.3ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 37ms (Views: 34.1ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/session.1" for 127.0.0.1 at 2019-05-04 19:12:39 -0700
+Processing by SessionsController#destroy as 
+  Parameters: {"authenticity_token"=>"Ki0XPNC9zIbA7Tr0yg9O6d2q9TSFTmJFUscWrqGk2wh0bR7FiVIPDKu1saq3NtzwD+9ld51EB+Zun4dJoUJN5g=="}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "l82EtEy_b8OVJAtD-TnNXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[35m (1.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:34
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "bats"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:34
+  [1m[36mUser Exists (2.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "CCFFXoR3tHbxg4RrGLYE5w"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:34
+  [1m[36mUser Update (2.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "CCFFXoR3tHbxg4RrGLYE5w"], ["updated_at", "2019-05-05 02:12:39.204270"], ["id", 1]]
+  ↳ app/models/user.rb:34
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:34
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 30ms (ActiveRecord: 9.2ms)
+
+
+Started GET "/cats" for 127.0.0.1 at 2019-05-04 19:12:39 -0700
+Processing by CatsController#index as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "LOWER(name)". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/flagpuppy/Desktop/Studying/App Academy/Projects/99 Cats/ninety_nine_cats/app/controllers/cats_controller.rb:7)
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.8ms)[0m  [1m[34mSELECT "cats".* FROM "cats" ORDER BY LOWER(name)[0m
+  ↳ app/views/cats/index.html.erb:7
+  Rendered cats/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 42ms (Views: 38.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2019-05-04 19:12:41 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (2.0ms)
+  Rendered shared/_login_form.html.erb (0.8ms)
+  Rendered sessions/new.html.erb within layouts/application (48.0ms)
+Completed 200 OK in 80ms (Views: 79.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats" for 127.0.0.1 at 2019-05-04 19:12:54 -0700
+Processing by CatsController#index as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "LOWER(name)". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/flagpuppy/Desktop/Studying/App Academy/Projects/99 Cats/ninety_nine_cats/app/controllers/cats_controller.rb:7)
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.8ms)[0m  [1m[34mSELECT "cats".* FROM "cats" ORDER BY LOWER(name)[0m
+  ↳ app/views/cats/index.html.erb:7
+  Rendered cats/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 23ms (Views: 21.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cats/6" for 127.0.0.1 at 2019-05-04 19:12:55 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mCat Load (1.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:12
+  Rendering cats/show.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.7ms)
+  [1m[36mCatRentalRequest Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 LIMIT $2[0m  [["cat_id", 6], ["LIMIT", 1]]
+  ↳ app/views/cats/show.html.erb:24
+  [1m[36mCatRentalRequest Load (0.4ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC[0m  [["cat_id", 6]]
+  ↳ app/views/cats/_rentals.html.erb:11
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY "cat_rental_requests"."start_date" ASC, "cat_rental_requests"."end_date" ASC[0m  [["cat_id", 6]]
+  ↳ app/views/cats/_rentals.html.erb:13
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 5], ["id", 6]]
+  ↳ app/views/cats/_rentals.html.erb:13
+  Rendered cats/_rentals.html.erb (11.6ms)
+  Rendered cats/show.html.erb within layouts/application (30.7ms)
+Completed 200 OK in 56ms (Views: 47.6ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2019-05-04 19:13:27 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.5ms)
+  Rendered shared/_login_form.html.erb (1.9ms)
+  Rendered sessions/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 27ms (Views: 26.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats" for 127.0.0.1 at 2019-05-04 19:13:30 -0700
+Processing by CatsController#index as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "LOWER(name)". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/flagpuppy/Desktop/Studying/App Academy/Projects/99 Cats/ninety_nine_cats/app/controllers/cats_controller.rb:7)
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.8ms)[0m  [1m[34mSELECT "cats".* FROM "cats" ORDER BY LOWER(name)[0m
+  ↳ app/views/cats/index.html.erb:7
+  Rendered cats/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 28ms (Views: 25.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2019-05-04 19:13:33 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (1.1ms)
+  Rendered shared/_login_form.html.erb (3.0ms)
+  Rendered sessions/new.html.erb within layouts/application (16.9ms)
+Completed 200 OK in 40ms (Views: 40.1ms | ActiveRecord: 0.0ms)
+
+

@@ -29,7 +29,7 @@ html, body, header, h1, h2, a, p, div, form, label, input, button, textarea, sel
     margin: 0;
     padding: 0;
     font-family: 'Amatic SC', cursive;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
     box-sizing: border-box;
     background-color: transparent;
@@ -362,7 +362,7 @@ div.msg {
 
 @media only screen and (min-width: 925px) and (max-resolution: 270dpi) {
     form, section {
-        width: 50%;
+        width: 60%;
     }
 }
 
