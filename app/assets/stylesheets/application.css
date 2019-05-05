@@ -263,12 +263,21 @@ form div {
 label {
     font-size: 1.2em;
     padding-right: 15px;
+    width: 120px;
+    word-break: break-all;
+    text-align: right;
 }
 
 label[for="description"] {
     display: block;
     text-align: left;
     margin-bottom: 5px;
+    word-break: normal;
+}
+
+input[type="radio"] + label {
+    text-align: left;
+    padding: 0 5px;
 }
 
 input {
@@ -287,7 +296,7 @@ label, input[type="text"], input[type="password"] {
 }
 
 input[type="text"], input[type="password"] {
-    max-width: 90%;
+    max-width: 200px;
 }
 
 input[type="radio"] {
@@ -341,7 +350,7 @@ div.msg {
     padding: 5px 0;
 }
 
-@media only screen and (min-width: 435px) {
+@media only screen and (min-width: 435px) and (max-resolution: 270dpi) {
     table {
         font-size: 1.75em;
     }
@@ -351,13 +360,13 @@ div.msg {
     }
 }
 
-@media only screen and (min-width: 925px) {
+@media only screen and (min-width: 925px) and (max-resolution: 270dpi) {
     form, section {
         width: 50%;
     }
 }
 
-@media only screen and (min-width: 650px) {
+@media only screen and (min-width: 650px) and (max-resolution: 270dpi) {
     .add-cat, a {
         font-size: 2em;
     }
@@ -385,5 +394,9 @@ div.msg {
 
     label {
         padding-right: 30px;
+    }
+
+    input[type="radio"] + label {
+        padding: 0 15px;
     }
 }
