@@ -3,3 +3,7 @@
 <h1>Edit a Cat!</h1>
 <%= render 'shared/errors' %>
 <%= render 'form', cat: @cat %>
+
+<% content_for :footer do %>
+  <p>This is the edit page</p>
+<% end %>

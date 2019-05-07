@@ -3,7 +3,7 @@
 <% btn_text = cat.persisted? ? "Update Cat" : "Create Cat" %>
 
 <form action="<%= action_url %>" method="post">
-    <input type="hidden", name="authenticity_token" value="<%= form_authenticity_token %>">
+    <%= form_token %>
     <input type="hidden" name="_method" value=<%= form_method %>>
 
     <div>

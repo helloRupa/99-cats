@@ -4,3 +4,7 @@
 
 <%= render 'shared/errors' %>
 <%= render "form", cat: @cat %>
+
+<% content_for :footer do %>
+    <p>This is add a cat</p>
+<% end %>
