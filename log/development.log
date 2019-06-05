@@ -24080,3 +24080,174 @@ DEPRECATION WARNING: Dangerous query method (method whose arguments are used as 
 Completed 200 OK in 23ms (Views: 20.6ms | ActiveRecord: 0.5ms)
 
 
+  [1m[36mCat Load (3.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY "cats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCatRentalRequest Load (44.5ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1[0m  [["cat_id", 1]]
+  [1m[36mCatRentalRequest Load (1.4ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" ORDER BY "cat_rental_requests"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/" for ::1 at 2019-06-05 14:58:13 -0700
+  [1m[35m (4.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flagpuppy/.rvm/gems/ruby-2.5.1/gems/better_errors-2.5.1/lib/better_errors/middleware.rb:84
+Processing by CatsController#index as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "LOWER(name)". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/flagpuppy/Desktop/Studying/App Academy/Projects/99 Cats/ninety_nine_cats/app/controllers/cats_controller.rb:7)
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (50.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats" ORDER BY LOWER(name)[0m
+  ↳ app/views/cats/index.html.erb:7
+  Rendered cats/index.html.erb within layouts/application (86.7ms)
+Completed 200 OK in 372ms (Views: 247.4ms | ActiveRecord: 63.7ms)
+
+
+Started GET "/users/new" for ::1 at 2019-06-05 14:58:20 -0700
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 17.7ms)
+
+
+
+ArgumentError - wrong number of arguments (given 0, expected 1):
+  app/models/user.rb:30:in `generate_session_token'
+  app/models/user.rb:43:in `ensure_session_token'
+  app/controllers/users_controller.rb:5:in `new'
+
+Started POST "/__better_errors/5a47e4bfa91056ed/variables" for ::1 at 2019-06-05 14:58:20 -0700
+Started GET "/users/new" for ::1 at 2019-06-05 14:58:38 -0700
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (46.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hbc7q_8Qet_X8yOpZC8CtQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.8ms)
+  Rendered shared/_login_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 141ms (Views: 40.7ms | ActiveRecord: 60.4ms)
+
+
+Started POST "/users" for ::1 at 2019-06-05 14:59:34 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"rZcvz0mzNg8fR4Lw67JYzlb0kY+TsCd1ez5z20iexM6n50+oXCzCvE8LEeXJqkf8COC/93oTbUiZpOJgrwBc3w==", "user"=>{"username"=>"blahblah", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "DGLrehi8MlnYrkVfJYh6yw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "blahblah"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "DGLrehi8MlnYrkVfJYh6yw"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Create (5.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "blahblah"], ["password_digest", "$2a$10$PWlUSMWcQxbSaGMTCmohX.ii3OPgbkka7TRBWdEd1/EHfYGcaefv2"], ["session_token", "DGLrehi8MlnYrkVfJYh6yw"], ["created_at", "2019-06-05 21:59:34.106124"], ["updated_at", "2019-06-05 21:59:34.106124"]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:12
+  Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.5ms)
+  Rendering user_mailer/welcome_email.text.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (0.4ms)
+UserMailer#welcome_email: processed outbound mail in 294.0ms
+Sent mail to blahblah (39.8ms)
+Date: Wed, 05 Jun 2019 14:59:34 -0700
+From: everybody@appacademy.io
+To: blahblah
+Message-ID: <5cf83b46bc8a1_3a43fc2d9c0f554819a@Rupinders-MacBook-Pro.local.mail>
+Subject: Welcome to the Site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5cf83b46b98ff_3a43fc2d9c0f554806c";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5cf83b46b98ff_3a43fc2d9c0f554806c
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to the Cat Site blahblah!
+
+It's great that you're here!
+
+----==_mimepart_5cf83b46b98ff_3a43fc2d9c0f554806c
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to the Cat Site blahblah!</h1>
+    <p>It's great that you're here!</p>
+  </body>
+  </body>
+</html>
+
+----==_mimepart_5cf83b46b98ff_3a43fc2d9c0f554806c--
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Dlbrjw7BdZ5Myy1UdxTYcQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:36
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "blahblah"], ["id", 9], ["LIMIT", 1]]
+  ↳ app/models/user.rb:36
+  [1m[36mUser Exists (2.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "Dlbrjw7BdZ5Myy1UdxTYcQ"], ["id", 9], ["LIMIT", 1]]
+  ↳ app/models/user.rb:36
+  [1m[36mUser Update (41.9ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "Dlbrjw7BdZ5Myy1UdxTYcQ"], ["updated_at", "2019-06-05 21:59:34.822895"], ["id", 9]]
+  ↳ app/models/user.rb:36
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:36
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 845ms (ActiveRecord: 60.2ms)
+
+
+Started GET "/cats" for ::1 at 2019-06-05 14:59:35 -0700
+Processing by CatsController#index as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "LOWER(name)". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/flagpuppy/Desktop/Studying/App Academy/Projects/99 Cats/ninety_nine_cats/app/controllers/cats_controller.rb:7)
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (2.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats" ORDER BY LOWER(name)[0m
+  ↳ app/views/cats/index.html.erb:7
+  Rendered cats/index.html.erb within layouts/application (88.6ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Dlbrjw7BdZ5Myy1UdxTYcQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Dlbrjw7BdZ5Myy1UdxTYcQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Dlbrjw7BdZ5Myy1UdxTYcQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 161ms (Views: 111.7ms | ActiveRecord: 34.1ms)
+
+
+Started DELETE "/session.9" for ::1 at 2019-06-05 14:59:56 -0700
+Processing by SessionsController#destroy as 
+  Parameters: {"authenticity_token"=>"TgkbmNLgOFyK0i3r/GpZTYBEAWi6Qi0iJpiaR5gHkGTnfKr9AUuQmDA8ixZqgVJ2jxSeYf6EkNMqsOoMffbzrg=="}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Dlbrjw7BdZ5Myy1UdxTYcQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OIeqmmxgPiYGUpkyMyH9_w"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:36
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "blahblah"], ["id", 9], ["LIMIT", 1]]
+  ↳ app/models/user.rb:36
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "OIeqmmxgPiYGUpkyMyH9_w"], ["id", 9], ["LIMIT", 1]]
+  ↳ app/models/user.rb:36
+  [1m[36mUser Update (1.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "OIeqmmxgPiYGUpkyMyH9_w"], ["updated_at", "2019-06-05 21:59:56.561490"], ["id", 9]]
+  ↳ app/models/user.rb:36
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:36
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 29ms (ActiveRecord: 7.8ms)
+
+
+Started GET "/cats" for ::1 at 2019-06-05 14:59:56 -0700
+Processing by CatsController#index as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "LOWER(name)". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/flagpuppy/Desktop/Studying/App Academy/Projects/99 Cats/ninety_nine_cats/app/controllers/cats_controller.rb:7)
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats" ORDER BY LOWER(name)[0m
+  ↳ app/views/cats/index.html.erb:7
+  Rendered cats/index.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 36ms (Views: 33.9ms | ActiveRecord: 1.3ms)
+
+
